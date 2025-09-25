@@ -9,7 +9,7 @@ from scipy.optimize import minimize
 
 def read_csv(file_path: str):
     if not os.path.exists(file_path):
-        print("ファイルが存在しません")
+        print("読み込みファイルが存在しません")
         return None, None
     else:
         df = pd.read_csv(file_path)
@@ -20,7 +20,7 @@ def read_csv(file_path: str):
 
 def add_csv(file_path: str, data: dict):
     if not os.path.exists(file_path):
-        print("ファイルが存在しません")
+        print("追加先ファイルが存在しません")
         return None
     else:
         with open(file_path, "a", newline="", encoding="utf-8") as f:

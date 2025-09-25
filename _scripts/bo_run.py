@@ -19,7 +19,7 @@ def main(initial_input, initial_rigidities):
     bounds = np.array([[0, 5], [0, 5]])
 
     # データの取得
-    last_index, last_values = _modules.read_csv("analysis_datas.csv")
+    last_index, last_values = _modules.read_csv("_datas/analysis_datas.csv")
 
     if last_index is None:
         raise FileNotFoundError("[MyError]: analysis_datas.csv is not found")
@@ -38,7 +38,7 @@ def main(initial_input, initial_rigidities):
     next_input, _ = _modules.acq_minimize(_modules.EI, bounds, args=(model, current_best))
     print(f"次の入力値: {next_input}")
     add_data = {"h1": next_input[0], "h2": next_input[1]}
-    _modules.add_csv("parameters.csv", add_data)
+    _modules.add_csv("_datas/parameters.csv", add_data)
 
 
 if __name__ == "__main__":

@@ -19,10 +19,10 @@ def fem_simulation(h1, h2): # ダミー
 
 def main():
     # データの取得
-    last_index, last_values = _modules.read_csv("parameters.csv")
+    last_index, last_values = _modules.read_csv("_datas/parameters.csv")
 
     if last_index is None:
-        raise FileNotFoundError("[MyError]: analysis_datas.csv is not found")
+        raise FileNotFoundError("[MyError]: parameters.csv is not found")
     else:
         h1 = last_values["h1"]
         h2 = last_values["h2"]
@@ -31,7 +31,8 @@ def main():
 
     print(f"解析結果: rigidity = {rigidities}")
     add_data = {"rigidity": rigidities}
-    _modules.add_csv("analysis_datas.csv", add_data)
+    print(os.getcwd())
+    _modules.add_csv("_datas/analysis_datas.csv", add_data)
 
 
 if __name__ == "__main__":
