@@ -1,1 +1,1 @@
-_datas/*
+git rm -r --cached _datas/*
